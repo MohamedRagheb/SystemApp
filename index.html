@@ -119,14 +119,14 @@
         const content = `
         محافظة الغربيه
         المحله العام
-        عدد الاسره${beds}
-        مشغول${busyBeds}
+      عدد الاسره  ${beds}
+      مشغول  ${busyBeds}
         عدد الحضانات. ${hdanata}
         مشغول  ${busy7danata}
         عدد اجهزة الفمت. ${ventilators}
         مشغول. ${busyVentilators}
         تشخيص الحالات
-           ${selectedOptions.map(String).join('\n')}
+         ${selectedOptions.map(String).join('\n')}
        `
         document.querySelector('#message').value = content
         document.querySelector('#message').select();
