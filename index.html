@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>SystemApp</title>
+    <style>
+        html{
+            direction: rtl;
+        }
+        body{
+            padding-right: 20px;
+        }
+        .row{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .col {
+            padding: 10px;
+            border: 2px solid black;
+            display: flex;
+            justify-content: space-around;
+        }
+       input[type='number']{
+            width: 50%;
+        }
+       .btn{
+           width: 50%;
+           padding: 10px;
+           align-self: center;
+           background-color: orange;
+           border: 4px solid orange;
+           border-radius:20px ;
+       }
+       .btn:hover{
+           background-color:lightgrey;
+       }
+       #diagnoses{
+           height: 130px;
+       }
+    </style>
+</head>
+<body>
+<div class="row">
+<div class="col">
+<label for="busyBeds">
+    عدد الاسره
+</label>
+<input name="busyBeds" type="text" id="beds" >
+</div>
+    <div class="col">
+<label for="busyBeds">
+    عدد الاسره المشغوله
+</label>
+<input name="busyBeds" type="text" id="busyBeds"  >
+    </div>
+    <div class="col">
+
+<label for="7danata">
+    عد الحضانات
+</label>
+<input name="7danata" type="text" id="hdanata"  >
+    </div>
+    <div class="col">
+
+<label for="busy7danata">
+    عد الحضانات المشغوله
+</label>
+<input name="busy7danata" type="text" id="busy7danata"  >
+    </div>
+    <div class="col">
+
+<label for="ventilators">
+    عدد اجهزه التنفس الصناعي
+</label>
+<input name="ventilators" type="text" id="ventilators"  >
+    </div>
+    <div class="col">
+<label for="busyVentilators">
+    عدد اجهزه التنفس الصناعي المشغوله
+</label>
+<input name="busyVentilators" type="text" id="busyVentilators" >
+    </div>
+    <select id="diagnoses" multiple>
+        <option value="CHD with pneumonia"> CHD with pneumonia</option>
+        <option value="CP with pneumonia"> CP with pneumonia</option>
+        <option value="AGE with sevre dehyd."> AGE with sevre dehyd.</option>
+        <option value="Bronchopnumonia"> Bronchopnumonia </option>
+        <option value="Acute Bronchial asth."> Acute Bronchial asth. </option>
+        <option value="Aspiration pneu."> Aspiration pneu. </option>
+    </select>
+    <label for="message">الرساله </label>
+
+    <input type="button" class="btn" value="تحرير الرساله">
+    <textarea name="message" id="message" cols="30" rows="10"></textarea>
+</div>
+<script>
+    document.querySelector('.btn').addEventListener("click",()=>{
+        console.log('s')
+        const beds =document.querySelector('#beds').value
+        const busyBeds =document.querySelector('#busyBeds').value
+        const hdanata =document.querySelector('#hdanata').value
+        const busy7danata =document.querySelector('#busy7danata').value
+        const ventilators =document.querySelector('#ventilators').value
+        const busyVentilators =document.querySelector('#busyVentilators').value
+        const diagnosis = document.querySelector('#diagnoses').options
+        const selectedOptions = [];
+        for (let option of diagnosis) {
+            if (option.selected) {
+                selectedOptions.push(option.value);
+            }
+        }
+        console.log(selectedOptions)
+        const content = `
+        محافظة الغربيه
+        المحله العام
+        عدد الاسره${beds}
+        مشغول${busyBeds}
+        عدد الحضانات. ${hdanata}
+        مشغول  ${busy7danata}
+        عدد اجهزة الفمت. ${ventilators}
+        مشغول. ${busyVentilators}
+        تشخيص الحالات
+           ${selectedOptions.map(String).join('\n')}
+       `
+        document.querySelector('#message').value = content
+        document.querySelector('#message').select();
+        document.execCommand("copy");
+        alert("Text copied to clipboard: ");
+
+
+        console.log(content)
+    })
+</script>
+</body>
+</html>
