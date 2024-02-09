@@ -61,10 +61,10 @@
     </div>
     <div class="col">
 
-<label for="7danata">
+<label for="hdanata">
     عد الحضانات
 </label>
-<input name="7danata" type="text" id="hdanata"  >
+<input name="hdanata" type="text" id="hdanata"  >
     </div>
     <div class="col">
 
@@ -93,6 +93,11 @@
         <option value="Bronchopnumonia"> Bronchopnumonia </option>
         <option value="Acute Bronchial asth."> Acute Bronchial asth. </option>
         <option value="Aspiration pneu."> Aspiration pneu. </option>
+        <option value="IDDM  DKA"> IDDM  DKA </option>
+        <option value="Bronchopneumonia"> Bronchopneumonia </option>
+        <option value="Acute bronchiolitis"> Acute bronchiolitis </option>
+        <option value="Drug poisioning"> Drug poisioning </option>
+        <option value="Poly trauma"> Poly trauma </option>
     </select>
     <label for="message">الرساله </label>
 
@@ -125,8 +130,8 @@
         مشغول  ${busy7danata}
         عدد اجهزة الفمت. ${ventilators}
         مشغول. ${busyVentilators}
-        تشخيص الحالات
-         ${selectedOptions.map(String).join('\n')}
+           تشخيص الحالات
+${selectedOptions.map(String).join('\n')}
        `
         document.querySelector('#message').value = content
         document.querySelector('#message').select();
