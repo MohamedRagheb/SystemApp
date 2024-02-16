@@ -100,7 +100,7 @@
         <option value="Poly trauma"> Poly trauma </option>
         <option value="Bronchopneumonia"> Bronchopneumonia </option>
         <option value="Acute bronchiolitis"> Acute bronchiolitis </option>
-        <option value="New natal sepsis"> New natal sepsis </option>
+        <option value="Neo natal sepsis"> Neo natal sepsis </option>
     </select>
     <label for="message">الرساله </label>
 
@@ -108,7 +108,7 @@
     <textarea name="message" id="message" cols="30" rows="10"></textarea>
 </div>
 <script>
-    document.querySelector('.btn').addEventListener("click",()=>{
+    document.querySelector('.btn').addEventListener("click",async ()=>{
         const beds =document.querySelector('#beds').value
         const busyBeds =document.querySelector('#busyBeds').value
         const hdanata =document.querySelector('#hdanata').value
@@ -135,13 +135,11 @@
            تشخيص الحالات
 ${selectedOptions.map(String).join('\n')}
        `
-        document.querySelector('#message').value = content
-        document.querySelector('#message').select();
-        document.execCommand("copy");
-        alert("Text copied to clipboard: ");
+            document.querySelector('#message').value = content
+            document.querySelector('#message').select();
+            document.execCommand("copy");
+            alert("Text copied to clipboard: ");
 
-
-        console.log(content)
     })
 </script>
 </body>
