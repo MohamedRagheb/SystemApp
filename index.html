@@ -122,7 +122,6 @@
                 selectedOptions.push(option.value);
             }
         }
-        console.log(selectedOptions)
         const content = `
         محافظة الغربيه
         المحله العام
@@ -135,10 +134,15 @@
            تشخيص الحالات
 ${selectedOptions.map(String).join('\n')}
        `
+        if (document.querySelector('#message').value  === "" ){
             document.querySelector('#message').value = content
+
+        }
+        if(document.querySelector('#message').value  !== "" ){
             document.querySelector('#message').select();
             document.execCommand("copy");
             alert("Text copied to clipboard: ");
+        }
 
     })
 </script>
